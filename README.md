@@ -117,7 +117,7 @@ git clone <本仓库地址> lxa_aat   # 然后重启 ComfyUI
 
 ## 和其他插件一起用
 
-顺序：**Anima-Artist-Mixer（AAM）在前，本套件在后**。本套件自带内存清理机制（ComfyUI 0.27 的动态加载有两个已知坑，都处理了）；AAM 这类插件没做清理，如果你发现"明明没用画师插件，画风却残留下来"，那是对方的问题，不是这套的。
+顺序：**Anima-Artist-Mixer（AAM）在前，本套件在后，Anima-Artist-Mixer为本套件的mixer提供了思路**。
 
 ## 已知限制
 
