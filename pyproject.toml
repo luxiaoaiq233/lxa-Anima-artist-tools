@@ -1,0 +1,14 @@
+[project]
+name = "lxa_aat"
+description = "lxa AAT (Anima Artist Tools)：Anima 多画师语义隔离 —— 并行混合 + 层-步调度"
+version = "0.1.2"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.urls]
+Repository = "https://example.invalid/lxa_aat"
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "lxa AAT (Anima Artist Tools)"
+Icon = ""

@@ -1,0 +1,37 @@
+THIRD-PARTY NOTICES
+===================
+
+本仓库代码除下述声明外均为原创。
+
+**唯一移植部分**：lowrank_delta 融合模式中的 SVD top-k 子空间投影实现
+（core.py 中 `_svd_topk_project` 与 `ParallelArtistCrossAttn._fuse_lowrank`）
+移植自 Anima-Artist-Mixer（函数 _fwd_lowrank_avg，custom_nodes/
+Anima-Artist-Mixer/nodes.py:1000-1067）。其余全部代码（Pack 槽位抽取、
+并行混合 wrapper 体系、层-步调度、Conditioning Blender、Step Alternator、
+Epsilon Multi-Guide、权重备份键卫生与 ON_DETACH 剥离机制）均为原创。
+
+Anima-Artist-Mixer 的许可证如下：
+
+---
+
+MIT License
+
+Copyright (c) 2026 An1X3R and 汐浮尘
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
