@@ -1,0 +1,1004 @@
+{
+  "2": {
+    "inputs": {
+      "unet_name": "anima-base-v1.0.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "3": {
+    "inputs": {
+      "clip_name": "qwen_3_06b_base.safetensors",
+      "type": "stable_diffusion",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "4": {
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "5": {
+    "inputs": {
+      "base_prompt": [
+        "6",
+        0
+      ],
+      "artist_chain": [
+        "9",
+        1
+      ],
+      "clip": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "AATArtistPack",
+    "_meta": {
+      "title": "AAT Artist Pack (Encode)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "间隔符_separator": "逗号_comma",
+      "文本1_text1": [
+        "7",
+        0
+      ],
+      "文本2_text2": [
+        "9",
+        1
+      ],
+      "文本3_text3": [
+        "8",
+        0
+      ],
+      "文本4_text4": "",
+      "文本5_text5": "",
+      "自定义间隔_custom_sep": "",
+      "强制单行_single_line": true
+    },
+    "class_type": "TextJoiner",
+    "_meta": {
+      "title": "[16] 文本拼接器"
+    }
+  },
+  "7": {
+    "inputs": {
+      "value": "masterpiece, best quality, highres, very aesthetic, score_7, score_8, score_9, sensitive, ultra detailed,\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
+    }
+  },
+  "8": {
+    "inputs": {
+      "text_positive": "1girl, aqua eyes, looking at viewer, looking up, red kimono, off-shoulder kimono, ornate kimono, short black hair, wind, spider lily, red spider lily, field of flowers, flower field, overcast sky, pale light, somber atmosphere, melancholic, depth of field, close-up, portrait, from above, high angle, upper body, solo, bangs, sad, sadness, blurry foreground",
+      "text_negative": "worst quality, low quality, score_1, score_2, score_3, blurry, artist name,bad anatomy, watermark, censored,jpeg artifacts, sepia, empty eyes,  ",
+      "style": "base",
+      "log_prompt": true,
+      "style_positive": true,
+      "style_negative": true
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler"
+    }
+  },
+  "9": {
+    "inputs": {
+      "text": "@torino aqua, @96yottea, @quasarcake,",
+      "_tag_display": "",
+      "Style Browser": null,
+      "Random Style": null,
+      "clip": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "AnimaStyleExplorer",
+    "_meta": {
+      "title": "Anima Style Explorer"
+    }
+  },
+  "10": {
+    "inputs": {},
+    "class_type": "easy showAnything",
+    "_meta": {
+      "title": "展示任何"
+    }
+  },
+  "11": {
+    "inputs": {
+      "fusion_mode": "output_avg",
+      "strength": 1.5,
+      "start_block": 0,
+      "end_block": -1,
+      "apply_to_uncond": false,
+      "ema_alpha": 0,
+      "static_capture_k": 0,
+      "lowrank_k": 1,
+      "lowrank_normalize_weights": true,
+      "rms_clamp_ratio": 1.2,
+      "model": [
+        "2",
+        0
+      ],
+      "artist_contexts": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "AATParallelArtistMixer",
+    "_meta": {
+      "title": "AAT Parallel Artist Mixer"
+    }
+  },
+  "31": {
+    "inputs": {
+      "samples": [
+        "35",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "32": {
+    "inputs": {
+      "filename_prefix": "output avg",
+      "images": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "output avg"
+    }
+  },
+  "34": {
+    "inputs": {
+      "预设": "960x1280",
+      "互换宽高": false,
+      "随机模式": false,
+      "批次数量": 1,
+      "管理预设": null
+    },
+    "class_type": "ZML_PresetResolution",
+    "_meta": {
+      "title": "ZML_预设分辨率"
+    }
+  },
+  "35": {
+    "inputs": {
+      "seed": [
+        "36",
+        0
+      ],
+      "steps": 35,
+      "cfg": 4,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "11",
+        0
+      ],
+      "positive": [
+        "5",
+        1
+      ],
+      "negative": [
+        "40",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "36": {
+    "inputs": {
+      "seed": -1
+    },
+    "class_type": "Seed (rgthree)",
+    "_meta": {
+      "title": "Seed (rgthree)"
+    }
+  },
+  "40": {
+    "inputs": {
+      "text": [
+        "8",
+        1
+      ],
+      "clip": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "59": {
+    "inputs": {
+      "samples": [
+        "64",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "60": {
+    "inputs": {
+      "filename_prefix": "interpolate",
+      "images": [
+        "59",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "interpolate"
+    }
+  },
+  "62": {
+    "inputs": {
+      "fusion_mode": "interpolate",
+      "strength": 0.75,
+      "start_block": 0,
+      "end_block": -1,
+      "apply_to_uncond": false,
+      "ema_alpha": 0,
+      "static_capture_k": 0,
+      "lowrank_k": 1,
+      "lowrank_normalize_weights": true,
+      "rms_clamp_ratio": 1.2,
+      "model": [
+        "2",
+        0
+      ],
+      "artist_contexts": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "AATParallelArtistMixer",
+    "_meta": {
+      "title": "AAT Parallel Artist Mixer"
+    }
+  },
+  "64": {
+    "inputs": {
+      "seed": [
+        "36",
+        0
+      ],
+      "steps": 35,
+      "cfg": 4,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "62",
+        0
+      ],
+      "positive": [
+        "5",
+        1
+      ],
+      "negative": [
+        "40",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "69": {
+    "inputs": {
+      "samples": [
+        "74",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "70": {
+    "inputs": {
+      "filename_prefix": "base preserve",
+      "images": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "base preserve"
+    }
+  },
+  "72": {
+    "inputs": {
+      "fusion_mode": "base_preserve",
+      "strength": 1.5,
+      "start_block": 0,
+      "end_block": -1,
+      "apply_to_uncond": false,
+      "ema_alpha": 0,
+      "static_capture_k": 0,
+      "lowrank_k": 1,
+      "lowrank_normalize_weights": true,
+      "rms_clamp_ratio": 1.2,
+      "model": [
+        "2",
+        0
+      ],
+      "artist_contexts": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "AATParallelArtistMixer",
+    "_meta": {
+      "title": "AAT Parallel Artist Mixer"
+    }
+  },
+  "74": {
+    "inputs": {
+      "seed": [
+        "36",
+        0
+      ],
+      "steps": 35,
+      "cfg": 4,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "72",
+        0
+      ],
+      "positive": [
+        "5",
+        1
+      ],
+      "negative": [
+        "40",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "79": {
+    "inputs": {
+      "samples": [
+        "84",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "80": {
+    "inputs": {
+      "filename_prefix": "lowrank delta",
+      "images": [
+        "79",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "lowrank delta"
+    }
+  },
+  "82": {
+    "inputs": {
+      "fusion_mode": "lowrank_delta",
+      "strength": 1.5,
+      "start_block": 0,
+      "end_block": -1,
+      "apply_to_uncond": false,
+      "ema_alpha": 0,
+      "static_capture_k": 0,
+      "lowrank_k": 1,
+      "lowrank_normalize_weights": true,
+      "rms_clamp_ratio": 1.2,
+      "model": [
+        "2",
+        0
+      ],
+      "artist_contexts": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "AATParallelArtistMixer",
+    "_meta": {
+      "title": "AAT Parallel Artist Mixer"
+    }
+  },
+  "84": {
+    "inputs": {
+      "seed": [
+        "36",
+        0
+      ],
+      "steps": 35,
+      "cfg": 4,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "82",
+        0
+      ],
+      "positive": [
+        "5",
+        1
+      ],
+      "negative": [
+        "40",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "89": {
+    "inputs": {
+      "samples": [
+        "94",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "90": {
+    "inputs": {
+      "filename_prefix": "AAT Layer-Step Scheduler",
+      "images": [
+        "89",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "AAT Layer-Step Scheduler"
+    }
+  },
+  "94": {
+    "inputs": {
+      "seed": [
+        "36",
+        0
+      ],
+      "steps": 35,
+      "cfg": 5,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "118",
+        0
+      ],
+      "positive": [
+        "5",
+        1
+      ],
+      "negative": [
+        "40",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "109": {
+    "inputs": {
+      "samples": [
+        "116",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "111": {
+    "inputs": {
+      "filename_prefix": "AAT Step Alternator (Guider)",
+      "images": [
+        "109",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "AAT Step Alternator (Guider)"
+    }
+  },
+  "115": {
+    "inputs": {
+      "cfg": 5,
+      "mode": "alternate_n",
+      "n_every": 2,
+      "fallback": "base",
+      "final_k": 0,
+      "final_artist": -1,
+      "debug_logging": false,
+      "range1_enable": false,
+      "range1_artist": 0,
+      "range1_start": 0,
+      "range1_end": -1,
+      "range2_enable": false,
+      "range2_artist": 1,
+      "range2_start": 0,
+      "range2_end": -1,
+      "range3_enable": false,
+      "range3_artist": 2,
+      "range3_start": 0,
+      "range3_end": -1,
+      "model": [
+        "2",
+        0
+      ],
+      "artist_contexts": [
+        "5",
+        0
+      ],
+      "negative": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "AATStepAlternator",
+    "_meta": {
+      "title": "AAT Step Alternator (Guider)"
+    }
+  },
+  "116": {
+    "inputs": {
+      "noise": [
+        "117",
+        0
+      ],
+      "guider": [
+        "115",
+        0
+      ],
+      "sampler": [
+        "121",
+        0
+      ],
+      "sigmas": [
+        "122",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "自定义采样器（高级）"
+    }
+  },
+  "117": {
+    "inputs": {
+      "noise_seed": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "随机噪波"
+    }
+  },
+  "118": {
+    "inputs": {
+      "layer_config": "0::1.0@0-9,\n1::1.0@10-14,\n2::1.0@15-27,\n\n",
+      "transition_fn": "hard",
+      "transition_width": 0,
+      "apply_to_uncond": false,
+      "model": [
+        "2",
+        0
+      ],
+      "artist_contexts": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "AATLayerStepScheduler",
+    "_meta": {
+      "title": "AAT Layer-Step Scheduler"
+    }
+  },
+  "121": {
+    "inputs": {
+      "sampler_name": "euler_ancestral"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "K采样器选择"
+    }
+  },
+  "122": {
+    "inputs": {
+      "scheduler": "normal",
+      "steps": 35,
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "基本调度器"
+    }
+  },
+  "124": {
+    "inputs": {
+      "filename_prefix": "AAT Epsilon Multi-Guide",
+      "images": [
+        "130",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "AAT Epsilon Multi-Guide"
+    }
+  },
+  "125": {
+    "inputs": {
+      "noise_seed": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "随机噪波"
+    }
+  },
+  "130": {
+    "inputs": {
+      "samples": [
+        "134",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "131": {
+    "inputs": {
+      "sampler_name": "euler_ancestral"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "K采样器选择"
+    }
+  },
+  "132": {
+    "inputs": {
+      "scheduler": "normal",
+      "steps": 35,
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "基本调度器"
+    }
+  },
+  "134": {
+    "inputs": {
+      "noise": [
+        "125",
+        0
+      ],
+      "guider": [
+        "135",
+        0
+      ],
+      "sampler": [
+        "131",
+        0
+      ],
+      "sigmas": [
+        "132",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "自定义采样器（高级）"
+    }
+  },
+  "135": {
+    "inputs": {
+      "cfg": 5,
+      "s_a": 0.35,
+      "s_b": 0.35,
+      "s_c": 0.35,
+      "s_d": 0,
+      "s_e": 0,
+      "s_f": 0,
+      "s_g": 0,
+      "s_h": 0,
+      "cfg_order": "stack_then_cfg",
+      "model": [
+        "2",
+        0
+      ],
+      "artist_contexts": [
+        "5",
+        0
+      ],
+      "negative": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "AATEpsilonMultiGuide",
+    "_meta": {
+      "title": "AAT Epsilon Multi-Guide"
+    }
+  },
+  "140": {
+    "inputs": {
+      "samples": [
+        "145",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "141": {
+    "inputs": {
+      "filename_prefix": "AAT Conditioning Blender",
+      "images": [
+        "140",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "AAT Conditioning Blender"
+    }
+  },
+  "145": {
+    "inputs": {
+      "seed": [
+        "36",
+        0
+      ],
+      "steps": 35,
+      "cfg": 5,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "147",
+        0
+      ],
+      "negative": [
+        "40",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "147": {
+    "inputs": {
+      "blend_coeff": 0.3,
+      "renorm": false,
+      "artist_contexts": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "AATConditioningBlender",
+    "_meta": {
+      "title": "AAT Conditioning Blender"
+    }
+  },
+  "156": {
+    "inputs": {
+      "samples": [
+        "159",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "159": {
+    "inputs": {
+      "seed": [
+        "36",
+        0
+      ],
+      "steps": 35,
+      "cfg": 5,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "163",
+        0
+      ],
+      "negative": [
+        "40",
+        0
+      ],
+      "latent_image": [
+        "34",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "162": {
+    "inputs": {
+      "filename_prefix": "base",
+      "images": [
+        "156",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "base"
+    }
+  },
+  "163": {
+    "inputs": {
+      "text": [
+        "6",
+        0
+      ],
+      "clip": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  }
+}
