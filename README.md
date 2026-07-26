@@ -15,9 +15,9 @@
 
 ## 安装
 
-```bash
-cd ComfyUI/custom_nodes
-git clone <本仓库地址> lxa_aat   # 然后重启 ComfyUI
+```
+
+git clone 本仓库，或直接下载zip文件解压到comfyui/custom_nodes， # 然后重启 ComfyUI
 ```
 
 要求：ComfyUI ≥ 0.27.0、PyTorch ≥ 2.0、Python ≥ 3.10，模型用 **Anima**。不装任何第三方依赖、不联网、不动 ComfyUI 本体。
