@@ -115,10 +115,6 @@ git clone <本仓库地址> lxa_aat   # 然后重启 ComfyUI
 | `cfg` | 5.0 | CFG 值 |
 | `cfg_order` | stack_then_cfg | 和 CFG 结合的顺序，两种数学上等价，用默认 |
 
-## 和其他插件一起用
-
-顺序：**Anima-Artist-Mixer（AAM）在前，本套件在后，Anima-Artist-Mixer为本套件的mixer提供了思路**。
-
 ## 已知限制
 
 - 它消除的是"画师互相抢"和"渗透"，不保证任何组合都 100% 好——这是大语言模型非线性决定的天花板；
@@ -135,4 +131,4 @@ python -m pytest custom_nodes/lxa_aat/tests/ -q   # 12 passed
 
 ## 许可
 
-MIT（见 `LICENSE`）。其中 `lowrank_delta` 模式的 SVD 投影移植自 Anima-Artist-Mixer（MIT，© 2026 An1X3R & 汐浮尘，见 `NOTICE`），其余都是原创。
+MIT（见 `LICENSE`）。Anima-Artist-Mixer为本套件的mixer提供了思路，其中 `lowrank_delta` 模式的 SVD 投影移植自 Anima-Artist-Mixer（MIT，© 2026 An1X3R & 汐浮尘，见 `NOTICE`），其余都是原创。
