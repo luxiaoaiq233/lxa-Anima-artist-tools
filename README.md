@@ -136,5 +136,3 @@ python -m pytest custom_nodes/lxa_aat/tests/ -q   # 12 passed
 ## 许可
 
 MIT（见 `LICENSE`）。其中 `lowrank_delta` 模式的 SVD 投影移植自 Anima-Artist-Mixer（MIT，© 2026 An1X3R & 汐浮尘，见 `NOTICE`），其余都是原创。
-
-> 从老版本 `artist_isolation` 升级来的：v0.1.1 起旧节点名已经删了，旧工作流打不开的，把节点换成新名字（`AATArtistPack` / `AATParallelArtistMixer` / `AATLayerStepScheduler`）就行。
